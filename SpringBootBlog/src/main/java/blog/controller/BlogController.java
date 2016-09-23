@@ -1,4 +1,4 @@
-package blog.ontroller;
+package blog.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,9 +10,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class BlogController {
 
 	@RequestMapping(method = RequestMethod.GET)
-	@ResponseBody
 	public String get() {
-		return "blogs";
+		return "blog";
 	}
 
 	@RequestMapping(path = "/create", method = RequestMethod.POST)

@@ -21,6 +21,6 @@ public interface ArticleRepository extends Repository<Article, Long> {
 	 * @param id
 	 * @return
 	 */
-	Article findById(long id);
+	Article findById(Long id);
 
 }
