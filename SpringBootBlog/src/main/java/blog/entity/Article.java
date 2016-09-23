@@ -1,4 +1,4 @@
-package entity;
+package blog.entity;
 
 import java.util.Date;
 
@@ -13,7 +13,7 @@ public class Article {
 	@Id
 	@GeneratedValue
 	@Column(name = "article_id")
-	private long id;
+	private Long id;
 	@Column(name = "article_title")
 	private String title;
 	@Column(name = "article_article")
@@ -21,10 +21,16 @@ public class Article {
 	@Column(name = "article_create_date")
 	private Date createDate;
 
+	public Article(String title, String article) {
+		this.title = title;
+		this.article = article;
+		this.createDate = new Date();
+	}
+
 	/**
 	 * @return id
 	 */
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -32,7 +38,7 @@ public class Article {
 	 * @param id
 	 *            セットする id
 	 */
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -81,4 +87,7 @@ public class Article {
 		this.createDate = createDate;
 	}
 
+	public String toString() {
+		return String.format("Article[title:%s, date:%s]", title, createDate);
+	}
 }

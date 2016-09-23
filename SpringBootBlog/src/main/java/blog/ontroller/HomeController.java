@@ -1,4 +1,4 @@
-package controller;
+package blog.ontroller;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;

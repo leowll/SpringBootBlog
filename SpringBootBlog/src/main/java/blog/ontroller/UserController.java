@@ -1,4 +1,4 @@
-package controller;
+package blog.ontroller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,19 +6,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/blog")
-public class BlogController {
+@RequestMapping("/user")
+public class UserController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	@ResponseBody
 	public String get() {
-		return "blogs";
+		return "get user";
 	}
 
 	@RequestMapping(path = "/create", method = RequestMethod.POST)
-	@ResponseBody
 	public String create() {
-		return "/blog/create";
+		return "/user";
 	}
-
 }

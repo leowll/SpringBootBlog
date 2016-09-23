@@ -1,10 +1,11 @@
-package repository;
+package blog.repository;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.Repository;
 
-import entity.Article;
+import blog.entity.Article;
+
 
 public interface ArticleRepository extends Repository<Article, Long> {
 	
