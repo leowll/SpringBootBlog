@@ -21,6 +21,9 @@ public class Article {
 	@Column(name = "article_create_date")
 	private Date createDate;
 
+	public Article(){
+		
+	}
 	public Article(String title, String article) {
 		this.title = title;
 		this.article = article;

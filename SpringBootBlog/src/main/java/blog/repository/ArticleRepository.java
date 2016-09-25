@@ -3,10 +3,11 @@ package blog.repository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.Repository;
+import org.springframework.stereotype.Component;
 
 import blog.entity.Article;
 
-
+@Component
 public interface ArticleRepository extends Repository<Article, Long> {
 	
 	/**
