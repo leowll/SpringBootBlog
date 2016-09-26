@@ -5,15 +5,16 @@
 	<div class="row">
 		<div class="col-md-5 blogs">
 		<h2>Blogs</h2>
-			<c:forEach items="${articles}" var="article">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<a href="/blog/${article.id}"> ${article.title}</a>
+						<c:if test="${not empty user }">
+						<a href="/blog/${article.id}/edit" class="editButton">編集<span class="glyphicon glyphicon-pencil"></span></a>
+						</c:if>
 					</div>
 					<div class="panel-body">${article.article}</div>
 				</div>
 	
-			</c:forEach>
 		</div>
 	</div>
 </t:page>

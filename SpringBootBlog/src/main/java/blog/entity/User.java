@@ -16,6 +16,17 @@ public class User {
 	private String name;
 	@Column(name = "user_gender")
 	private String gender;
+	@Column(name = "password")
+	private String password;
+
+	public User() {
+
+	}
+
+	public User(String username, String password) {
+		this.name = username;
+		this.password = password;
+	}
 
 	/**
 	 * @return id
@@ -60,6 +71,21 @@ public class User {
 	 */
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	/**
+	 * @return password
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * @param password
+	 *            セットする password
+	 */
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }

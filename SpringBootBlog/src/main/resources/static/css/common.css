@@ -1,7 +1,16 @@
+.blogs {
+	margin: 0 auto;
+}
+
+a.editButton{
+	float:right;
+}
+
 nav {
-	height: 30px;
+	height: 50px;
 	margin: 0 auto;
 	width: 100%;
+	background-color:lightgray;
 }
 
 .form-signin {
@@ -9,8 +18,9 @@ nav {
 	margin: 0 auto;
 }
 
-.form-control {
+input.form-control {
 	height: 30px !important;
+	margin-bottom: 10px !important;
 }
 
 .panel-heading a {

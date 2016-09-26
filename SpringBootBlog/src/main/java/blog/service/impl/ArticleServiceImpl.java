@@ -1,5 +1,7 @@
 package blog.service.impl;
 
+import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,11 +16,33 @@ import blog.service.ArticleService;
 public class ArticleServiceImpl implements ArticleService {
 
 	@Autowired
+	private EntityManager em;
+
+	@Autowired
 	private ArticleRepository articleRepository;
-	
+
 	@Override
 	public Page<Article> findAllArticles(Pageable pageable) {
 		return articleRepository.findAll(pageable);
+	}
+
+	@Override
+	public Article findById(Long id) {
+
+		return articleRepository.findById(id);
+	}
+
+	@Override
+	@Transactional
+	public void save(Article newArticle) {
+		em.persist(newArticle);
+	}
+
+	@Override
+	@Transactional
+	public void update(Article newArticle) {
+		em.merge(newArticle);
+
 	}
 
 }

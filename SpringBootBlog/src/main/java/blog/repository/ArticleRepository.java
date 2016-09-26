@@ -24,4 +24,5 @@ public interface ArticleRepository extends Repository<Article, Long> {
 	 */
 	Article findById(Long id);
 
+
 }
