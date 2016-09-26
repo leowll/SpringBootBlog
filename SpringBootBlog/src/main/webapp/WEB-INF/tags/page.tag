@@ -7,6 +7,7 @@
 <link href="${contextPath}/css/bootstrap.min.css" rel="stylesheet">
 <link href="${contextPath}/css/common.css" rel="stylesheet">
 <link href="${contextPath}/css/bootstrap-theme.min.css" rel="stylesheet">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 </head>
 <body>
 	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
