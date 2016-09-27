@@ -14,6 +14,28 @@
 					</div>
 					<div class="panel-body">${article.article}</div>
 				</div>
+				<div class="comment-part">
+					<h4>Comments</h4>
+					<div class="comments">
+					<div class="panel panel-primary">
+						<c:forEach items="${comments}" var="comment">
+							<div class="panel-heading">
+							${comment.username} | ${comment.createDate}
+							</div>
+							<div class="panel-body">
+								${comment.content}
+							</div>
+						</c:forEach>					
+					</div>
+					</div>
+					<div class="form-group">
+						<form action="/blog/${article.id}/comment" method="post">
+							<input type="text" class="form-control" name="username"/>
+							<textarea rows="5" class="form-control" name="content"></textarea>
+							<input type="submit" class="btn btn-primary" value="Comment"/>
+						</form>
+					</div>
+				</div>
 	
 		</div>
 	</div>
