@@ -2,6 +2,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 <t:page>
+<div class="center-block" style="width:50%;">
 <div class="row">
 	<div class="col-md-4">
 		 <form method="POST" action="${contextPath}/login" class="form-signin">
@@ -15,5 +16,6 @@
 			</div>
 		</form>
 	</div>
+</div>
 </div>
 </t:page>
