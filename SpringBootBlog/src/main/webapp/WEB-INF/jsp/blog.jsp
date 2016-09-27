@@ -15,6 +15,7 @@
 				</div>
 	
 			</c:forEach>
+			<t:pagination></t:pagination>
 		</div>
 	</div>
 </t:page>

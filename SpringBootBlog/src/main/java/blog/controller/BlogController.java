@@ -45,7 +45,10 @@ public class BlogController {
 	*/
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String getArticles(@PageableDefault(value = 15, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable, Model model) {
-		List<Article> list = articleService.findAllArticles(pageable).getContent();
+		Page<Article> articlePage = articleService.findAllArticles(pageable);
+		List<Article> list = articlePage.getContent();
+		int pageCnt = articlePage.getTotalPages();
+		model.addAttribute("pageCnt", pageCnt);
 		model.addAttribute("articles", list);
 		return "blog";
 	}
