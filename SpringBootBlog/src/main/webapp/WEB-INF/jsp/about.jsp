@@ -2,7 +2,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 <t:page>
-	<div class="jumbotron">
+	<div class="jumbotron" style="margin-top:20px;">
 		<h1>Welcome!</h1>
 	</div>
 	<div class="sociallinkarea">

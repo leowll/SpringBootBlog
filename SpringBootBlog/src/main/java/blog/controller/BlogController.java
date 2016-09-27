@@ -4,14 +4,17 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 
@@ -44,13 +47,38 @@ public class BlogController {
 	}
 	*/
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String getArticles(@PageableDefault(value = 15, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable, Model model) {
+	public String getArticles(@RequestParam(value = "pageNo", required = false, defaultValue = "0") Integer pageNo,
+			@PageableDefault(value = 5, sort = { "id" }, direction = Sort.Direction.DESC) Pageable pageable, Model model) {
+		Sort sort = new Sort(Direction.DESC, "id");
+		pageable = new PageRequest(pageNo, 5, sort);
 		Page<Article> articlePage = articleService.findAllArticles(pageable);
 		List<Article> list = articlePage.getContent();
 		int pageCnt = articlePage.getTotalPages();
 		model.addAttribute("pageCnt", pageCnt);
 		model.addAttribute("articles", list);
 		return "blog";
+	}
+
+	@RequestMapping(path = "/new", method = RequestMethod.GET)
+	public String getNewBlog(WebRequest request) {
+		User user = (User) request.getAttribute("user", WebRequest.SCOPE_SESSION);
+		if (user != null)
+			return "new";
+		else
+			return "login";
+	}
+
+	@RequestMapping(path = "/new", method = RequestMethod.POST)
+	public String postNewBlog(WebRequest request) {
+		String title = request.getParameter("title");
+		String articleContent = request.getParameter("article");
+		Article newArticle = new Article(title, articleContent);
+		User user = (User) request.getAttribute("user", WebRequest.SCOPE_SESSION);
+		if (user != null) {
+			articleService.save(newArticle);
+			return "redirect:/blog";
+		} else
+			return "login";
 	}
 
 	@RequestMapping(path = "/{articleId}", method = RequestMethod.GET)
