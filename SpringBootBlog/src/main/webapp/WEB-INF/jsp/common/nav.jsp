@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<nav style="width:100%;">
+<nav class="nav-bar navbar-default" style="width:100%;">
 <ul class="nav navbar-nav" >
 	<li><a href="/">Home</a></li>
 	<li><a href="/blog">Blog</a></li>

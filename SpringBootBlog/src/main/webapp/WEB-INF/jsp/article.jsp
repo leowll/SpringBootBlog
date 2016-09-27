@@ -9,7 +9,7 @@
 					<div class="panel-heading">
 						<a href="/blog/${article.id}"> ${article.title}</a>
 						<c:if test="${not empty user }">
-						<a href="/blog/${article.id}/edit" class="editButton">編集<span class="glyphicon glyphicon-pencil"></span></a>
+						<a href="/blog/${article.id}/edit" class="editButton"><span class="fa fa-pencil"></span>編集</a>
 						</c:if>
 					</div>
 					<div class="panel-body">${article.article}</div>
@@ -30,7 +30,7 @@
 						<form action="/blog/${article.id}/comment" method="post">
 							<input type="text" class="form-control" name="username"/>
 							<textarea rows="5" class="form-control" name="content"></textarea>
-							<input type="submit" class="btn btn-primary" value="Comment"/>
+							<input type="submit" class="btn btn-primary form-control" value="Comment"/>
 						</form>
 					</div>
 				</div>

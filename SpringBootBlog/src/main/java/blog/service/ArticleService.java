@@ -13,4 +13,6 @@ public interface ArticleService {
 	void save(Article newArticle);
 	
 	void update(Article newArticle);
+	
+	void delete(Article article);
 }

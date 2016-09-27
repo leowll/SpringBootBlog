@@ -45,4 +45,10 @@ public class ArticleServiceImpl implements ArticleService {
 
 	}
 
+	@Override
+	@Transactional
+	public void delete(Article article) {
+		em.remove(article);
+	}
+
 }

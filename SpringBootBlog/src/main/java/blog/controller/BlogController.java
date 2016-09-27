@@ -103,6 +103,17 @@ public class BlogController {
 			return "login";
 	}
 
+	@RequestMapping(path = "/{articleId}/delete", method = RequestMethod.POST)
+	public String deleteBlog(@PathVariable(value = "articleId") Long id, Model model, WebRequest request) {
+		Article article = articleService.findById(id);
+		User user = (User) request.getAttribute("user", WebRequest.SCOPE_SESSION);
+		if (user != null) {
+			articleService.delete(article);
+			return "redirect:/blog";
+		} else
+			return "login";
+	}
+
 	@RequestMapping(path = "/{articleId}/edit", method = RequestMethod.POST)
 	public String editBlog(@PathVariable(value = "articleId") Long id, Model model, WebRequest request) {
 		String title = request.getParameter("title");
@@ -110,7 +121,7 @@ public class BlogController {
 		System.out.println("title:" + title + ",article:" + article);
 		Article newArticle = new Article(title, article);
 		newArticle.setId(id);
-		articleService.save(newArticle);
+		articleService.update(newArticle);
 		return "redirect:/blog/" + id;
 	}
 
