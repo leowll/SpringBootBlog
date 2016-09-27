@@ -2,14 +2,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 
 <t:page>
-	<div class="jumbotron">
-		<h1>Welcome!</h1>
-	</div>
-	<div class="sociallinkarea">
-		<ul>
-			<li><a href="#"><span class="fa fa-github"></span>Github</a></li>
-			<li><a href="#"><span class="fa fa-twitter"></span>Twitter</a></li>
-			<li><a href="#"><span class="fa fa-facebook"></span>Facebook</a></li>
-		</ul>
-	</div>
+		<div class="jumbotron">
+			<h1>Welcome!</h1>
+		</div>
 </t:page>

@@ -8,10 +8,9 @@
 			<c:forEach items="${articles}" var="article">
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<a href="/blog/${article.id}"> ${article.title} </a>|${article.createDate }
+						<a href="/blog/${article.id}"> ${article.title}</a>
 					</div>
 					<div class="panel-body">${article.article}</div>
-					
 				</div>
 	
 			</c:forEach>

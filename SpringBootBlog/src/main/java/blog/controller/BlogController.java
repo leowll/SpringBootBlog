@@ -3,7 +3,6 @@ package blog.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -16,10 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 
 import blog.entity.Article;
-import blog.entity.Comment;
 import blog.entity.User;
 import blog.service.ArticleService;
-import blog.service.CommentService;
 
 @Controller
 @RequestMapping("/blog")
@@ -27,9 +24,6 @@ public class BlogController {
 
 	@Autowired
 	private ArticleService articleService;
-
-	@Autowired
-	private CommentService commentService;
 
 	/*
 	@RequestMapping(method = RequestMethod.GET)
@@ -51,13 +45,9 @@ public class BlogController {
 	}
 
 	@RequestMapping(path = "/{articleId}", method = RequestMethod.GET)
-	public String getBlog(@PathVariable(value = "articleId") Long id, Model model,
-			@PageableDefault(value = 10, sort = "createDate", direction = Sort.Direction.DESC) Pageable pageable) {
+	public String getBlog(@PathVariable(value = "articleId") Long id, Model model) {
 		Article article = articleService.findById(id);
-		Page<Comment> commentPage = commentService.findByArticleId(id, pageable);
-		List<Comment> comments = commentPage.getContent();
 		model.addAttribute("article", article);
-		model.addAttribute("comments", comments);
 		return "article";
 	}
 
@@ -81,15 +71,6 @@ public class BlogController {
 		newArticle.setId(id);
 		articleService.save(newArticle);
 		return "redirect:/blog/" + id;
-	}
-
-	@RequestMapping(path = "/{articleId}/comment", method = RequestMethod.POST)
-	public String commentBlog(@PathVariable(value = "articleId") Long articleId, Model model, WebRequest request) {
-		String content = request.getParameter("content");
-		String username = request.getParameter("username");
-		Comment comment = new Comment(articleId, username, content);
-		commentService.saveOrUpdate(comment);
-		return "redirect:/blog/" + articleId;
 	}
 
 	@RequestMapping(path = "/create", method = RequestMethod.POST)

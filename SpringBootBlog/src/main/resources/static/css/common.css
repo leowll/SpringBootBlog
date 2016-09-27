@@ -2,15 +2,15 @@
 	margin: 0 auto;
 }
 
-a.editButton {
-	float: right;
+a.editButton{
+	float:right;
 }
 
 nav {
 	height: 50px;
 	margin: 0 auto;
 	width: 100%;
-	background-color: lightgray;
+	background-color:lightgray;
 }
 
 .form-signin {
@@ -23,20 +23,6 @@ input.form-control {
 	margin-bottom: 10px !important;
 }
 
-textarea.form-control{
-	margin-bottom:10px !important;
-}
-
 .panel-heading a {
 	color: white;
-}
-
-.sociallinkarea ul {
-	list-style: none;
-}
-
-.sociallinkarea ul a {
-	float: left;
-	width: 150px;
-	font-size: 25px;
 }
