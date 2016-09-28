@@ -2,8 +2,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <t:page>
-	<div class="row center-block">
-		<div class="col-md-5 blogs">
+	<div class="row center-block" style="width:50%;">
 		<h2>Blogs</h2>
 				<div class="panel panel-default">
 					<div class="panel-heading">
@@ -30,11 +29,12 @@
 						<form action="/blog/${article.id}/comment" method="post">
 							<input type="text" class="form-control" name="username"/>
 							<textarea rows="5" class="form-control" name="content"></textarea>
-							<input type="submit" class="btn btn-primary form-control" value="Comment"/>
+							<div class="col-md-5">
+								<input type="submit" class="btn btn-primary form-control" value="Comment"/>
+							</div>
 						</form>
 					</div>
 				</div>
 	
 		</div>
-	</div>
 </t:page>
